@@ -14,7 +14,7 @@ public class ForgotPasswordTest extends Base {
 
     @BeforeMethod
     public void setUp() {
-        initializeBrowser("chrome","93");
+        initializeBrowser("chrome", "93");
     }
 
     @Test(description = "Verify forgot password with unregistered account")
@@ -28,7 +28,7 @@ public class ForgotPasswordTest extends Base {
         ForgotPasswordPage forgotPasswordPage = getPageFactory().getForgotPasswordPage();
 
         forgotPasswordPage.validateForgotPasswordForm();
-        forgotPasswordPage.resetPassword("test_flowkl"+randomNum+"@mailinator.com");
+        forgotPasswordPage.resetPassword("test_flowkl" + randomNum + "@mailinator.com");
         forgotPasswordPage.validateForgotPasswordForm();
         forgotPasswordPage.validateForgotPasswordErrorMessage("We can't find a user with that email address.");
 

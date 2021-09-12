@@ -49,7 +49,7 @@ public class Base implements ITestListener {
     }
 
     @AfterMethod
-    public void screenShotOnFail(ITestResult result){
+    public void tearDown(ITestResult result){
         Calendar currentDate = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("ddMMMyyyyHH.mm.ss");
 
@@ -80,10 +80,6 @@ public class Base implements ITestListener {
                 e.printStackTrace();
             }
         }
-    }
-
-    @AfterClass(alwaysRun = true)
-    public void getResult() {
         driver.quit();
     }
 
@@ -125,8 +121,9 @@ public class Base implements ITestListener {
         String baseUrl = property.getProperty("web_url");
         try {
             driver.navigate().to(baseUrl);
-            System.out.println("Navigate to " + baseUrl + " Application");
+            System.out.println("Navigate to " + baseUrl + " URL");
         } catch (Exception exception) {
+            System.out.println("Unable to get " + baseUrl + " URL");
         }
     }
 

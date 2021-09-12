@@ -5,16 +5,14 @@ import com.flowkl.pages.HomePage;
 import com.flowkl.pages.LoginPage;
 import com.flowkl.pages.navbar.TopMenu;
 import com.flowkl.webdriver.Base;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 @Listeners(TestListener.class)
 public class LoginTest extends Base {
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
-        initializeBrowser("chrome","93");
+        initializeBrowser("chrome", "93");
     }
 
     @Test(description = "TC01 – Flowkl User login")
@@ -24,17 +22,24 @@ public class LoginTest extends Base {
 
         LoginPage loginPage = getPageFactory().getLoginPage();
         loginPage.validateLoginPage();
-        loginPage.login(property.getProperty("email"),property.getProperty("password"));
+        loginPage.login(property.getProperty("email"), property.getProperty("password"));
 
         HomePage homePage = getPageFactory().getHomePage();
         homePage.validateHomePage();
     }
 
 
-    @Test(priority=1, description = "TC02 – Flowkl User Logout")
+    @Test(priority = 1, description = "TC02 – Flowkl User Logout")
     public void validateLogout() {
-
         TopMenu topMenu = getPageFactory().getTopMenu();
+        topMenu.navigateToLoginPage();
+
+        LoginPage loginPage = getPageFactory().getLoginPage();
+        loginPage.validateLoginPage();
+        loginPage.login(property.getProperty("email"), property.getProperty("password"));
+
+        HomePage homePage = getPageFactory().getHomePage();
+        homePage.validateHomePage();
 
         topMenu.validateUserAccountDropdown();
         topMenu.selectAccountDropdown("Logout");

@@ -13,7 +13,7 @@ public class BadLoginTest extends Base {
 
     @BeforeMethod
     public void setUp() {
-        initializeBrowser("chrome","93");
+        initializeBrowser("chrome", "93");
     }
 
     @Test(description = "Validate Login function with invalid credentials")
@@ -22,7 +22,7 @@ public class BadLoginTest extends Base {
         topMenu.navigateToLoginPage();
 
         LoginPage loginPage = getPageFactory().getLoginPage();
-        loginPage.login("unregistered@gmail.com","TestPwd");
+        loginPage.login("unregistered@gmail.com", "TestPwd");
         loginPage.validateLoginErrorMessage("These credentials do not match our records.");
     }
 
@@ -33,7 +33,7 @@ public class BadLoginTest extends Base {
 
         LoginPage loginPage = getPageFactory().getLoginPage();
         loginPage.validateLoginPage();
-        loginPage.login("","");
+        loginPage.login("", "");
 
         loginPage.validateLoginPage();
 
@@ -41,7 +41,7 @@ public class BadLoginTest extends Base {
 
     //Assuming on the requirement has max limit for this field
     @Test(description = "Validate email field accepts more than 100 chars")
-    public void validateEmailFieldWithLongCharacters () {
+    public void validateEmailFieldWithLongCharacters() {
         TopMenu topMenu = getPageFactory().getTopMenu();
         topMenu.navigateToLoginPage();
 
@@ -51,7 +51,7 @@ public class BadLoginTest extends Base {
 
     //Assuming on the requirement has max limit for this field
     @Test(description = "Validate password field max char limit")
-    public void validatePasswordFieldWithLongCharacters () {
+    public void validatePasswordFieldWithLongCharacters() {
         TopMenu topMenu = getPageFactory().getTopMenu();
         topMenu.navigateToLoginPage();
 
