@@ -3,9 +3,9 @@
 <suite name="TestSuite" verbose="2">
 	<test verbose="1" name="flowklRegression">
 		<classes>
-			<class name="com.flowkl.login.LoginTest"></class>
-			<class name="com.flowkl.login.BadLoginTest"></class>
-			<class name="com.flowkl.login.ForgotPasswordTest"></class>
+			<class name="com.flowkl.login.LoginTest"/>
+			<class name="com.flowkl.login.BadLoginTest"/>
+			<class name="com.flowkl.login.ForgotPasswordTest"/>
 		</classes>
 	</test>
 </suite>
