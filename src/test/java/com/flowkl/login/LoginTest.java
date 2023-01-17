@@ -12,7 +12,7 @@ public class LoginTest extends Base {
 
     @BeforeMethod
     public void setUp() {
-        initializeBrowser("chrome", "93");
+        initializeBrowser("chrome", "108");
     }
 
     @Test(description = "TC01 – Flowkl User login")
